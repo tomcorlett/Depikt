@@ -1,0 +1,40 @@
+dev/HELP.md
+dev/target/
+dev/.mvn/wrapper/maven-wrapper.jar
+dev/src/main/**/target/
+dev/**/src/test/**/target/
+dev/.mvn/wrapper/MavenWrapperDownloader.java
+dev/.gitignore
+dev/.mvn/wrapper/maven-wrapper.properties
+dev/TODO.txt
+dev/mvnw
+dev/mvnw.cmd
+dev/Depikt - Shortcut.lnk
+
+### STS ###
+dev/.apt_generated
+dev/.classpath
+dev/.factorypath
+dev/.project
+dev/.settings
+dev/.springBeans
+dev/.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
