@@ -57,11 +57,6 @@ public class MemberController {
         System.out.println("get members");
         return memberService.getMembers();
     }
-    
-    @PostMapping("/login")
-    public void login(@RequestBody Member member) {
-        
-    }
 
     @PostMapping
     public void addMember(@RequestBody Member member) {

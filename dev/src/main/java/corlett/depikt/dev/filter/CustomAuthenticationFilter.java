@@ -37,7 +37,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     public CustomAuthenticationFilter(AuthenticationManager authenticationManager) {
       System.out.println("init customauthenticationfilter");
       this.authenticationManager = authenticationManager;
-      this.setFilterProcessesUrl("/api/v1/member/login");
+      this.setFilterProcessesUrl("/api/v1/login");
     }
 
     @Override
