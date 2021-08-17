@@ -52,6 +52,11 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
       }
       Gson gson = new Gson();
       Member member = gson.fromJson(requestData, Member.class);
+
+      System.out.println("Now in loginController.login. request data = " + requestData);
+
+      System.out.println("Now in loginController.login. Member = " + member.toString());
+
       UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(member.getEmail(), member.getPassword());
       return authenticationManager.authenticate(authenticationToken);
     }

@@ -131,7 +131,8 @@ public class Member {
             "\"id\":\"" + this.id + "\"," + 
             "\"forename\":\"" + this.forename + "\"," + 
             "\"surname\":\"" + this.surname + "\"," + 
-            "\"email\":\"" + this.email + "\"," + 
+            "\"email\":\"" + this.email + "\"," +  
+            "\"password\":\"" + this.password + "\"," + 
             "\"dob\":\"" + this.dob + "\"" + 
             "}"; 
     }
