@@ -80,6 +80,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
       Map<String, String> tokens = new HashMap<>();
       tokens.put("access_token", accessToken);
+      tokens.put("expires_at", new Date(System.currentTimeMillis() + 10 * 60 * 1000).toString());
       tokens.put("refresh_token", refreshToken);
       response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
