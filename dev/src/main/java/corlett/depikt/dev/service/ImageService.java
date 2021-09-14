@@ -2,8 +2,6 @@ package corlett.depikt.dev.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import corlett.depikt.dev.model.Image;
 
 public interface ImageService {

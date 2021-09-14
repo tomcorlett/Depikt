@@ -1,14 +1,9 @@
 dev/HELP.md
 dev/target/
-dev/.mvn/wrapper/maven-wrapper.jar
 dev/src/main/**/target/
 dev/**/src/test/**/target/
-dev/.mvn/wrapper/MavenWrapperDownloader.java
 dev/.gitignore
-dev/.mvn/wrapper/maven-wrapper.properties
 dev/TODO.txt
-dev/mvnw
-dev/mvnw.cmd
 dev/Depikt - Shortcut.lnk
 
 ### STS ###

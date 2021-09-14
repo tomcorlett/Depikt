@@ -1,31 +1,51 @@
 package corlett.depikt.dev.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import corlett.depikt.dev.service.ImageServiceImpl;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Image {
     @Id
     @SequenceGenerator(
-        name = "member_sequence",
-        sequenceName = "member_sequence",
+        name = "image_sequence",
+        sequenceName = "image_sequence",
         allocationSize = 1
     )
     @GeneratedValue(
         strategy = GenerationType.SEQUENCE,
-        generator = "member_sequence"
+        generator = "image_sequence"
     )
-    private Long id;
+    private Long imageId;
     private String imageName;
     private String altText;
     private String location;
+    @OneToMany(mappedBy = "image")
+    private List<Description> descriptions = new ArrayList<>();
+    public Image(String imageName, String altText, String location) {
+        this.imageName = imageName;
+        this.altText = altText;
+        this.location = location;
+    }
 
     public void updateImage(Image image) {
         this.imageName = image.getImageName();
@@ -36,7 +56,7 @@ public class Image {
     @Override
     public String toString() {
         return "Image{" + 
-        "\"id\":\"" + this.id + "\"," + 
+        "\"id\":\"" + this.imageId + "\"," + 
         "\"imageName\":\"" + this.imageName + "\"," + 
         "\"altText\":\"" + this.altText + "\"," + 
         "\"location\":\"" + this.location + "\"" + 
