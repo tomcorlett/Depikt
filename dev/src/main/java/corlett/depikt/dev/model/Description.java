@@ -18,6 +18,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Description {
+
+    public Description(Image image, Long memberId, String description) {
+        this.image = image;
+        this.memberId = memberId;
+        this.description = description;
+    }
+
     @Id
     @SequenceGenerator(
         name = "description_sequence",
