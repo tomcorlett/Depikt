@@ -9,21 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import corlett.depikt.dev.model.Description;
-import corlett.depikt.dev.model.Image;
 import corlett.depikt.dev.service.DescriptionServiceImpl;
-import corlett.depikt.dev.service.ImageServiceImpl;
 
 
 @RestController
 @RequestMapping(path = "api/v1/description")
 public class DescriptionController {
     private final DescriptionServiceImpl descriptionService;
-    private final ImageServiceImpl ImageService;
 
     @Autowired
-    public DescriptionController(DescriptionServiceImpl descriptionService, ImageServiceImpl imageService) {
+    public DescriptionController(DescriptionServiceImpl descriptionService) {
         this.descriptionService = descriptionService;
-        this.ImageService = imageService;
     }
 
     @GetMapping(path = "{descriptionId}")

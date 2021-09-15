@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import corlett.depikt.dev.feed.Feed;
 import corlett.depikt.dev.model.Image;
-import corlett.depikt.dev.model.Post;
 
 @RestController
 @RequestMapping(path = "api/v1/feed")
