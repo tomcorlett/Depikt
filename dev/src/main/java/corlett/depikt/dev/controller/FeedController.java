@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import corlett.depikt.dev.feed.Feed;
+import corlett.depikt.dev.model.Image;
 import corlett.depikt.dev.model.Post;
 
 @RestController
@@ -21,7 +22,7 @@ public class FeedController {
     }
     
     @GetMapping
-    public List<Post> getFeed() {
+    public List<Image> getFeed() {
         return feed.getFeed();
     }
 }

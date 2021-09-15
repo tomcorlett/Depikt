@@ -33,9 +33,6 @@ public class DescriptionController {
 
     @PostMapping
     public void addDescription(@RequestBody Description description) {
-        Long imageId = description.getImageId();
-        Image image = ImageService.getImage(imageId);
-        description.setImage(image);
         descriptionService.addDescription(description);
     }    
 }

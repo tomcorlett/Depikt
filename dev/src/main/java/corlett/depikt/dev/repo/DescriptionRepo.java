@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DescriptionRepo extends JpaRepository<Description, Long> {
     
-    @Query(value = "SELECT d FROM DESCRIPTION d WHERE d.image_id = :imageId", nativeQuery = true)
-    List<Description> findByImage_Id(@Param("imageId") Long imageId);
+    @Query(value = "SELECT * FROM Description d WHERE d.image_id = :imageId", nativeQuery = true)
+    public List<Description> findByImageId(@Param("imageId") Long imageId);
 
 }

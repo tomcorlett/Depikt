@@ -25,7 +25,7 @@ public class DescriptionServiceImpl implements DescriptionService {
 
     @Override
     public List<Description> getDescriptionsByImageId(Long imageId) {
-       return descriptionRepo.findByImage_Id(imageId);
+       return descriptionRepo.findByImageId(imageId);
     }
 
     @Override

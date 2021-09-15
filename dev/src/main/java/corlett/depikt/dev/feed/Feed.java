@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import corlett.depikt.dev.model.Image;
 import corlett.depikt.dev.model.Post;
 import corlett.depikt.dev.service.DescriptionServiceImpl;
 import corlett.depikt.dev.service.ImageServiceImpl;
@@ -13,7 +14,7 @@ import corlett.depikt.dev.service.ImageServiceImpl;
 //gets feed: list of image/description combinations
 @Service
 public class Feed {
-    private List<Post> feed;
+    private List<Image> feed;
     private final ImageServiceImpl imageService;
     private final DescriptionServiceImpl descriptionService;
     
@@ -27,15 +28,11 @@ public class Feed {
         feed = new ArrayList<>();
     }
 
-    public List<Post> getFeed() {
+    public List<Image> getFeed() {
         //just select random ones for now
         //just for testing 
-        for (Long imageId : testImageIds) {
-            System.out.println("in feed getting image with id : " + imageId);
-            Post post = new Post();
-            post.setImage(imageService.getImage(imageId));
-            //post.setDescriptions(descriptionService.getDescriptionsByImageId(imageId));
-            feed.add(post);
+        for (Long imageId : testImageIds) {          
+            feed.add(imageService.getImage(imageId));
         }
         
         return feed;
