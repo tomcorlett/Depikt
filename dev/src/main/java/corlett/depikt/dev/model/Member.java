@@ -1,22 +1,34 @@
 package corlett.depikt.dev.model;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.SequenceGenerator;
 import static javax.persistence.FetchType.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Member {
     @Id
     @SequenceGenerator(
@@ -34,12 +46,14 @@ public class Member {
     private String email;
     private String password;
     private LocalDate dob;
+
     @ManyToMany(fetch = EAGER)
-    private Collection<Role> roles = new ArrayList<>();
+    private Set<Role> roles = new HashSet<>();
+
 
     public Member() {}
 
-    public Member(Long id, String forename, String surname, String email, String password, LocalDate dob, Collection<Role> roles) {
+    public Member(Long id, String forename, String surname, String email, String password, LocalDate dob, Set<Role> roles) {
         this.id = id;
         this.forename = forename;
         this.surname = surname;
@@ -49,7 +63,7 @@ public class Member {
         this.roles = roles;
     }
 
-    public Member(String forename, String surname, String email, String password, LocalDate dob, Collection<Role> roles) {
+    public Member(String forename, String surname, String email, String password, LocalDate dob, Set<Role> roles) {
         this.forename = forename;
         this.surname = surname;
         this.email = email;
@@ -117,11 +131,11 @@ public class Member {
         this.dob = dob;
     }
 
-    public Collection<Role> getRoles() {
+    public Set<Role> getRoles() {
         return this.roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 

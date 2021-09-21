@@ -12,7 +12,7 @@ import corlett.depikt.dev.service.ImageServiceImpl;
 //gets feed: list of image/description combinations
 @Service
 public class Feed {
-    private List<Image> feed;
+    
     private final ImageServiceImpl imageService;
     
     private Long[] testImageIds;
@@ -21,10 +21,10 @@ public class Feed {
     public Feed(ImageServiceImpl imageService) {
         this.imageService = imageService;
         testImageIds = new Long[]{1L, 2L};
-        feed = new ArrayList<>();
     }
 
     public List<Image> getFeed() {
+        List<Image> feed = new ArrayList<>();
         //just select random ones for now
         //just for testing 
         for (Long imageId : testImageIds) {          

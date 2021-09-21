@@ -86,8 +86,6 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
       System.out.println("access_token = " + accessToken);
       System.out.println("refresh_token = " + refreshToken);
-      //response.setHeader("access_token", accessToken);
-      //response.setHeader("refresh_token", refreshToken);
       new ObjectMapper().writeValue(response.getOutputStream(), tokens);
     }    
 }

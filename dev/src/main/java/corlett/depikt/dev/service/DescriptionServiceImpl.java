@@ -19,8 +19,7 @@ public class DescriptionServiceImpl implements DescriptionService {
 
     @Override
     public Description getDescription(Long descriptionId) {
-        // TODO Auto-generated method stub
-        return null;
+        return descriptionRepo.getById(descriptionId);
     }
 
     @Override
