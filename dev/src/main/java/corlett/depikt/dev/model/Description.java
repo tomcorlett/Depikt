@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -15,6 +16,10 @@ import javax.persistence.PreUpdate;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import static javax.persistence.FetchType.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -37,10 +42,11 @@ import lombok.RequiredArgsConstructor;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Description {
 
-    public Description(Image image, Member member, String description) {
+    public Description(Image image, Member member, String description, String title) {
         this.image = image;
         this.member = member;
         this.description = description;
+        this.title = title;
     }
 
     @Id
@@ -56,20 +62,15 @@ public class Description {
     private Long id;
     @Transient
     private Long imageId;
+    private String title;
     @ManyToOne
     @JoinColumn(name="image_id", nullable=false)
     @JsonBackReference
-    private Image image;
-    //https://stackoverflow.com/questions/1281952/what-is-the-easiest-way-to-ignore-a-jpa-field-during-persistence/41850392#41850392
-    //If you need mix JPA with JSON(omit by JPA but still include in Jackson) use @JsonInclude :
-    //@JsonInclude()    
+    private Image image;   
     @OneToOne
     @JoinColumn(name = "member_id", referencedColumnName = "id")
     private Member member;
-    private String description;    
-
-    public void setMember(Member member) {
-        System.out.println("in Description.setMember :: " + member.toString());
-        this.member = member;
-    }
+    private String description; 
+    @OneToMany(mappedBy = "description")
+    Set<Favorite> favorites;
 }

@@ -54,11 +54,11 @@ public class MembersConfig {
             theCastle = imageService.addImage(theCastle);
             tyrellCorp = imageService.addImage(tyrellCorp);
         
-            descriptionService.addDescription(new Description(hogwarts, testUser1, "The castle sat atop the hill looking all magic-y"));            
-            descriptionService.addDescription(new Description(hogwarts, testUser4, "The spires and turrets of the castle grazed the sky as the train came sweeping around the corner"));
-            descriptionService.addDescription(new Description(mordor, testUser1, "Mordor really weren't a nice place"));            
-            descriptionService.addDescription(new Description(mordor, testUser4, "Mount Doom was aptly named"));            
-            descriptionService.addDescription(new Description(mordor, testUser4, "Would have got here much faster if we just rode the eagles"));
+            descriptionService.addDescription(new Description(hogwarts, testUser1, "The castle sat atop the hill looking all magic-y", "Hogwarts: A History"));            
+            descriptionService.addDescription(new Description(hogwarts, testUser4, "The spires and turrets of the castle grazed the sky as the train came sweeping around the corner", "The school"));
+            descriptionService.addDescription(new Description(mordor, testUser1, "Mordor really weren't a nice place", "The tower"));            
+            descriptionService.addDescription(new Description(mordor, testUser4, "Mount Doom was aptly named", "Middle Earth"));            
+            descriptionService.addDescription(new Description(mordor, testUser4, "Would have got here much faster if we just rode the eagles", "The Journey"));
         }; 
     }
     

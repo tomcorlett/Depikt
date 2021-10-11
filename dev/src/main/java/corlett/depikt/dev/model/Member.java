@@ -1,6 +1,7 @@
 package corlett.depikt.dev.model;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -15,6 +16,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
@@ -49,6 +52,9 @@ public class Member {
 
     @ManyToMany(fetch = EAGER)
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "member")
+    Set<Favorite> favorites = new HashSet<>();
 
 
     public Member() {}
@@ -139,6 +145,14 @@ public class Member {
         this.roles = roles;
     }
 
+    public Set<Favorite> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(Set<Favorite> favorites) {
+        this.favorites = favorites;
+    }
+
     @Override
     public String toString() {
         return "Member{" + 
@@ -166,6 +180,10 @@ public class Member {
 
         if (member.getDob() != null && member.getDob() != this.dob){
             this.setDob(member.getDob());
+        }
+
+        if (member.getFavorites() != null) {
+            this.setFavorites(member.getFavorites());
         }
     }
 
