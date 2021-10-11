@@ -53,6 +53,10 @@ public class Favorite implements Serializable {
     public Favorite(Member member, Description description) {
         this.member = member;
         this.description = description;
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = LocalDate
+        
+        
+        
+        Time.now();
     }
 }
